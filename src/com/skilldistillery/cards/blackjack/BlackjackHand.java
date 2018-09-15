@@ -9,13 +9,13 @@ import com.skilldistillery.cards.common.Hand;
 public class BlackjackHand extends Hand {
 
 	
-	private List<Card> cardsInHandList;
+	private List<Card> cardsInHandList= new ArrayList<>();
+	private int totalHandValue = 0;
 	
 	public BlackjackHand() {
 	}
 	
 	public void blackjackCards(Card cardDealtToPerson) {
-		cardsInHandList = new ArrayList<>();
 		
 		cardsInHandList.add(cardDealtToPerson);
 	}
@@ -25,9 +25,11 @@ public class BlackjackHand extends Hand {
 		return cardsInHandList;
 	}
 	
+	public void setHandValue(int cardValue) {
+		totalHandValue = totalHandValue + cardValue;
+	}
 	public int getHandValue() {
-		
-		return 0;
+		return this.totalHandValue;
 	}
 	
 }

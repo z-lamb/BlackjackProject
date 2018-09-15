@@ -8,16 +8,15 @@ import com.skilldistillery.cards.common.Hand;
 
 public class HouseHand extends Hand {
 
-	private List<Card> cardsInHandList;
+	private List<Card> cardsInHandList = new ArrayList<>();
+	private int totalHandValue = 0;
 	
 	public HouseHand() {
 
 	}
 	
 	public void houseCards(Card cardDealtToHouse) {
-		cardsInHandList = new ArrayList<>();
-		
-		cardsInHandList.add(cardDealtToHouse);
+			cardsInHandList.add(cardDealtToHouse);
 	}
 	
 	
@@ -27,8 +26,11 @@ public class HouseHand extends Hand {
 		return cardsInHandList;
 	}
 
+	public void setHandValue(int cardValue) {
+		totalHandValue = totalHandValue + cardValue;
+	}
 	public int getHandValue() {
-		
-		return 0;
+		int getHandValue = totalHandValue;
+		return getHandValue;
 	}
 }
