@@ -9,6 +9,7 @@ public class BlackjackApp {
 	private Deck deck;
 	private BlackjackHand playerHand;
 	private HouseHand houseHand;
+	private String userInput;
 	
 	public static void main(String[] args) {
 
@@ -22,34 +23,60 @@ public class BlackjackApp {
 	private void launch(Scanner sc) {
 
 		System.out.println("Welcome to the game of Blackjack");
-		String userInput = menu(sc);
+		userInput = menu(sc);
 		
 		while(!userInput.equals("3")) {
 			switch (userInput) {
 				case "1":
-					displayGamePlay();
+					displayRules();
 					break;
 				case "2":
-					deck = new Deck();
-					deck.shuffle();
+					gamePlay(sc);
 					
-					playerHand = new BlackjackHand();
-					houseHand = new HouseHand();
 					break;
 				case "3":
 					System.out.println("Thank you for playing Blackjack");
 					System.out.println("Goodbye");
 					return;
 				default:
-					System.out.println("Please make a selection by choosing 1, 2, or 3");
-				
+					System.out.println();
+					System.out.println("Make a selection by choosing 1, 2, or 3");
+					System.out.println();
+					
 			}
 			userInput = menu(sc);
 		}
 		
+		
+		
+	}
+
+	private void gamePlay(Scanner sc) {
+		deck = new Deck();
+		deck.shuffle();
+		
+		playerHand = new BlackjackHand();
+		houseHand = new HouseHand();
 		newRound();
 		showHands();
-		deal(sc);
+		
+		System.out.println("Would you like to hit (h) or stay (s)");
+		userInput = sc.next().toUpperCase();
+		while(!userInput.equals("S"))
+			switch (userInput) {
+				case "H":
+					deal(userInput);
+					System.out.println("The current value of your hand is: " + playerHand.getHandValue());
+					System.out.println(playerHand.getCards());
+				case "S":
+					break;
+				default:
+					System.out.println("Please choose hit (h) or stay (s)");
+			}
+		while(houseHand.getHandValue() < 17) {
+			userInput = null;
+			deal(userInput);
+		}
 		
 		
 	}
@@ -66,13 +93,18 @@ public class BlackjackApp {
 		return userInput;
 	}
 
-	private void displayGamePlay() {
+	private void displayRules() {
 
 		//Add gameplay here
 	}
 
-	private void deal(Scanner sc) {
-
+	private void deal(String userInput) {
+		if(userInput.equals("H")) {
+			playerHand.blackjackCards(deck.dealCard());
+		}
+		if(userInput == null) {
+			houseHand.houseCards(deck.dealCard());
+		}
 		
 	}
 

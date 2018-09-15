@@ -8,15 +8,21 @@ import com.skilldistillery.cards.common.Hand;
 
 public class BlackjackHand extends Hand {
 
+	
+	private List<Card> cardsInHandList;
+	
 	public BlackjackHand() {
-
 	}
 	
 	public void blackjackCards(Card cardDealtToPerson) {
-		List<Card> cardsInHandList = new ArrayList<>();
+		cardsInHandList = new ArrayList<>();
 		
 		cardsInHandList.add(cardDealtToPerson);
-		System.out.println(cardsInHandList);
+	}
+	
+	@Override
+	public List<Card> getCards() {
+		return cardsInHandList;
 	}
 	
 	public int getHandValue() {

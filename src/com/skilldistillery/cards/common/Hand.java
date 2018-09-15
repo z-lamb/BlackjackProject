@@ -22,7 +22,7 @@ public abstract class Hand {
 	}
 	
 	public List<Card> getCards(){
-		List<Card> c;
+		
 		return null ;
 	}
 
