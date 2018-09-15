@@ -19,22 +19,10 @@ public enum Rank {
 		this.value = value;
 	}
 	
-	
-	
-	@Override
-	public String toString() {
-		return Integer.toString(getValue());
-	}
-
-
-
 	final private int value;
-
 	
 	public int getValue() {
 		return value;
 	}
-	
-	
 	
 }

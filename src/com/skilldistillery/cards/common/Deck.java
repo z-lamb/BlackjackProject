@@ -18,6 +18,7 @@ public class Deck {
 				deck.add(card);
 
 			}
+			
 		}
 
 	}
@@ -26,12 +27,17 @@ public class Deck {
 		return deck.size();
 	}
 	
-	public Card dealCard() {
-		return deck.remove(0);
-	}
 	
 	public void shuffle() {
 		Collections.shuffle(deck);
 	}
 
+	public Card dealCard() {
+		return deck.remove(0);
+	}
+	
+//	Sanity check
+//	public void dealWholeDeck() {
+//		System.out.println(deck);
+//	}
 }

@@ -12,15 +12,14 @@ public enum Suit {
 	
 	final private String name;
 	
-	@Override
-	public String toString() {
-		return name;
-	}
-
 	public String getName() {
 		return name;
 	}
 	
+	@Override
+	public String toString() {
+		return name;
+	}
 	
 }
 
