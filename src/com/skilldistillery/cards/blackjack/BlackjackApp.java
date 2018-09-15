@@ -55,36 +55,46 @@ public class BlackjackApp {
 	}
 
 	private void gamePlay(Scanner sc) {
-		deck = new Deck();
-		deck.shuffle();
 
+		deck = new Deck();
 		newRound();
 		showHands();
 
 		while (!userInput.equals("S")) {
+			checkDeckSize();
+			
+			System.out.println();
 			System.out.println("Would you like to hit (h) or stay (s)");
 			userInput = sc.next().toUpperCase();
 			switch (userInput) {
 			case "H":
 			case "HIT":
 				deal(userInput);
-				System.out.println("The current value of your hand is: " + playerHand.getHandValue());
-				System.out.println(playerHand.getCards());
+				showHands();
+				break;
 			case "S":
 			case "STAY":
 				break;
 			default:
 				System.out.print("Please choose hit (h) or stay (s) >> ");
 			}
-			while (houseHand.getHandValue() < 17) {
-				deal(userInput);
-			}
 		}
+		while (houseHand.getHandValue() < 17) {
+			deal(userInput);
+		}
+	}
+
+	private void checkDeckSize() {
+		if(deck.checkDeckSize() == 0) {
+			deck = new Deck();
+			deck.shuffle();
+		}		
 	}
 
 	private void newRound() {
 		playerHand = new BlackjackHand();
 		houseHand = new HouseHand();
+		checkDeckSize();
 		
 		for (int i = 0; i < 2; i++) {
 			addPlayerCard();
