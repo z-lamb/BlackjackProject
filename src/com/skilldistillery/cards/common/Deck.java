@@ -11,23 +11,19 @@ public class Deck {
 	public Deck() {
 
 		deck = new ArrayList<>();
-				
+
 		for (Suit suit : Suit.values()) {
 			for (Rank rank : Rank.values()) {
 				card = new Card(suit, rank);
 				deck.add(card);
-
 			}
-			
 		}
-
 	}
-	
+
 	public int checkDeckSize() {
 		return deck.size();
 	}
-	
-	
+
 	public void shuffle() {
 		Collections.shuffle(deck);
 	}
@@ -35,9 +31,4 @@ public class Deck {
 	public Card dealCard() {
 		return deck.remove(0);
 	}
-	
-//	Sanity check
-//	public void dealWholeDeck() {
-//		System.out.println(deck);
-//	}
 }

@@ -6,13 +6,13 @@ import java.util.List;
 import com.skilldistillery.cards.common.Card;
 import com.skilldistillery.cards.common.Hand;
 
-public class BlackjackHand extends Hand {
+public class PlayerHand extends Hand {
 
 	
 	private List<Card> cardsInHandList= new ArrayList<>();
 	private int totalHandValue = 0;
 	
-	public BlackjackHand() {
+	public PlayerHand() {
 	}
 	
 	public void blackjackCards(Card cardDealtToPerson) {

@@ -11,7 +11,7 @@ import com.skilldistillery.cards.common.Deck;
 public class GameOperator {
 
 	private Deck deck;
-	private BlackjackHand playerHand = new BlackjackHand();
+	private PlayerHand playerHand = new PlayerHand();
 	private HouseHand houseHand = new HouseHand();
 	private String userInput, name;
 
@@ -22,6 +22,7 @@ public class GameOperator {
 
 	public void playGame(Scanner sc, String name) {
 
+		// assigns name to this.name so that it can be used throughout the class
 		this.name = name;
 		
 		// creates and shuffles a new deck
@@ -38,8 +39,6 @@ public class GameOperator {
 
 			// if user has 21 and house does not have 21 at initial shuffle the user wins
 			if (playerHand.getHandValue() == 21 && houseHand.getHandValue() != 21) {
-				
-				
 				System.out.println("BLACKJACK! You win!!!");
 				System.out.println("Play another round");
 				endOfRound();
@@ -120,7 +119,7 @@ public class GameOperator {
 			System.out.println("House wins this round with a hand of " + houseHand.getHandValue()
 					+ " compared to your hand of " + playerHand.getHandValue() + "\n");
 		} else if (houseHand.getHandValue() == playerHand.getHandValue()) {
-			System.out.println("This round ends in a tie with ahdn values of " + houseHand.getHandValue() + "\n");
+			System.out.println("This round ends in a tie with hand values of " + houseHand.getHandValue() + "\n");
 		} else if (houseHand.getHandValue() < playerHand.getHandValue() && playerHand.getHandValue() <= 21) {
 			System.out.println("You win this round with a hand of " + playerHand.getHandValue()
 					+ " compared to the house hand of " + houseHand.getHandValue() + "\n");

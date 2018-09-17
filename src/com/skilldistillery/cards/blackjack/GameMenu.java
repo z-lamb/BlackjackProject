@@ -25,7 +25,6 @@ public class GameMenu {
 				break;
 			case "2":
 				gameOperator.playGame(scanner, name);
-
 				break;
 			case "3":
 				System.out.println("Thank you " + name + " for playing Blackjack");
@@ -90,9 +89,5 @@ public class GameMenu {
 		System.out.println(" Q \t  10");
 		System.out.println(" K \t  10");
 		System.out.println(" A \t  11");
-	}
-	
-	public String getName() {
-		return name;
 	}
 }
