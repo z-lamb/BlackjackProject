@@ -59,15 +59,27 @@ GameOperator:
 Game starts by welcoming the user to Blackjack
 - this is done by from the main creating an instance of itself and calling the launch method
 - inside the launch method it calls the GameMenu class and send the program to the menuOptions method
-The user is prompted to enter their name and then the menu is displayed
+
+The user is prompted to enter their name and then the menu is displayed where they can choose what they would like to do
 1. Display Rules
 2. Start a new game
 3. Quit
 
-	
+If the user selects option 1 the rules for Blackjack will be displayed.
+If the user selects option 2 a new game will be started.
+If the user selects option 3 the program will quit.
 
-### Technologies/Techniques Usedd
+When a new game starts the user is given 1 card face up and then the dealer/house is given 1 card face down. The user is then given another card face up and the dealer/house is given a card face up.
 
+If the user has 21 and the dealer/house does not have 21 the round is over and the user wins.
+
+If the user has less than 21 they are given the option to stay or hit. If the user opts to hit they will be given another card face up and they will be given the option to stay or hit again. They can do this as many times as they would like. Once they user decides to stay the dealer/house will draw cards until they reach at least a hand of 17.
+
+If at any point the user or the dealer/house goes over 21 the round is over. If neither went over the two hands are compared and the higher hand wins.
+
+The user is given the opportunity to do another round or they can end the round. If they opt to end the round they will be taken to the main menu where they will be able to make a selection from there.
+
+### Technologies/Techniques Used
 - created an instance of the main application to be able to launch the app inside of the main and have that be the only method in there.
 - call other methods from classes and pass information to and from them
 - declare and create new objects
@@ -95,7 +107,7 @@ The user is prompted to enter their name and then the menu is displayed
 
 
 
-### Lessons Learned
+### Lessons Learnedd
 - I learned how to start and close one scanner by passing the scanner through the method calls
 - I was able to better refactor and have smaller methods and had very little repeating code.
 - I also was able to have the app be just the main app and have the rest of the program running in other classes
@@ -113,6 +125,8 @@ The user is prompted to enter their name and then the menu is displayed
 - One issue that took me a little bit to figure out was how to call a method where I needed the value but had to use three ".methodCall()" to finally get what I needed
 - I don't think I did the app correct and believe I could have not created an instance of the app itself and then call a method inside the main that calls a different class. Seems like a lot of extra to me.
 - There are a few times where I reset the userInput to a blank string ("") because I didn't know if the previous userInput would messup the options for the new option it needed to check against
+
+- I was unsure I should have more classes to break up the GameOperation class more as there is a lot of code currently in itt
 
 ### Things I was unable to add or incorporate
 - Test Driven Development with JUnit tests
