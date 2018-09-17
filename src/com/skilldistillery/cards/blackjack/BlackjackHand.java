@@ -32,4 +32,10 @@ public class BlackjackHand extends Hand {
 		return this.totalHandValue;
 	}
 	
+	@Override
+	public void clearHand() {
+		cardsInHandList.clear();
+		totalHandValue = 0;
+	}
+	
 }

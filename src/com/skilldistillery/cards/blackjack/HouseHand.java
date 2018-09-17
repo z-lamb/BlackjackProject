@@ -10,17 +10,15 @@ public class HouseHand extends Hand {
 
 	private List<Card> cardsInHandList = new ArrayList<>();
 	private int totalHandValue = 0;
-	
+
 	public HouseHand() {
 
 	}
-	
+
 	public void houseCards(Card cardDealtToHouse) {
-			cardsInHandList.add(cardDealtToHouse);
+		cardsInHandList.add(cardDealtToHouse);
 	}
-	
-	
-	
+
 	@Override
 	public List<Card> getCards() {
 		return cardsInHandList;
@@ -29,8 +27,15 @@ public class HouseHand extends Hand {
 	public void setHandValue(int cardValue) {
 		totalHandValue = totalHandValue + cardValue;
 	}
+
 	public int getHandValue() {
 		int getHandValue = totalHandValue;
 		return getHandValue;
+	}
+
+	@Override
+	public void clearHand() {
+		cardsInHandList.clear();
+		totalHandValue = 0;
 	}
 }
